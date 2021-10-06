@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block post %}disable{% endblock %}
+{% block body%}
+<div class="container container-main">
+	<div class="m-4">
+	<div class="center-img m-4">
+	<img src='../static/img/1.jpg' class="img-fluid" alt="..." width="600vh">
+	<h1>Admins Pannel</h1>
+	<hr>
+	<br>
+	<br>
+	<h2>Add Post</h2>
+	<a href="/operation/0" class="btn btn-primary">Add Post</a>
+	<hr>
+	<br>
+	<br>
+	<h2>Logout</h2>
+	<a href="/logout" class="btn btn-primary">Logout</a>
+	<hr>
+	<br>
+	<div>
+		<h1>Posts</h1>
+		<table class="table m-4">
+  <thead>
+    <tr>
+    	<th scope="col">Sno</th>
+      <th scope="col">Title</th>
+      <th scope="col">Descr</th>
+      <th scope="col">Slug</th>
+      <th scope="col">Id</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for post in posts %}
+	{% if post.descr|length > 40 %}
+	{% set descr = post.descr[0:40]+"..." %}
+	{% else %}
+	{% set descr = post.descr %}
+	{% endif %}
+	{% if post.title|length > 17 %}
+	{% set title = post.title[0:17]+"..." %}
+	{% else %}
+	{% set title = post.title %}
+	{% endif %}
+	{% set url = "/viewpost/"+post.slug %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td><a href="{{url}}" class="text-dark"> {{title}}</a></td>
+      <td>{{descr}}</td>
+      <td>{{post.slug}}</td>
+      <th scope="row">{{post.sno}}</th>
+      <td>{{post.posted_on}}</td>
+      <td><a href="/operation/{{post.sno}}" class="btn btn-primary">Edit</a></td>
+      <td><a href="/delete/{{post.sno}}" class="btn btn-primary">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+	</div>
+	</div>
+	<div class="container center m-4">
+	<p></p>
+	</div>
+	</div>
+</div>
+{% endblock %}

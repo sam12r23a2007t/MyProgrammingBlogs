@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block title %}Post-{{posts.title[0:10]}}{% endblock %}
+{% block post %}active{% endblock %}
+{% set img_path = "../static/img/"+posts.img %}
+{% block body%}
+<div class="container container-main">
+	<div class="m-4">
+	<div class="center-img m-4">
+	<img src={{img_path}} class="img-fluid" alt="..." width="500vh">
+	<h1>{{posts.title}}</h1>
+	<h4>Posted on: {{posts.posted_on}}</h4>
+	</div>
+	<div class="container center m-4">
+	<p>{{posts.descr}}</p>
+	</div>
+	</div>
+	<hr class="my-4">
+	<div class="m-2">
+		<h1>Comments</h1>
+		<div>
+			{% if loggedin != 'True' %}
+			<div>
+				You must be logged in to add a comment <a href="/userlogin">login</a> or <a href="/signup">signup</a> if you dont have a account
+			</div>
+			{% else %}
+			<h3>Add a comment</h3>
+			<form action="/comment", method="POST">
+				<div class="mb-3">
+				  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+				  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descr"></textarea>
+				  <input type="hidden" name="post" value='{{posts.slug}}'>
+				</div>
+				<button type="submit" class="btn btn-primary">Post</button>
+			</form>
+			{% endif %}
+		</div>
+		<hr class='my-2'>
+		<br>
+		<br>
+		<div>
+			{% for comment in comment2 %}
+			{% if comment.descr|length >200 %}
+			{% set descr = comment.descr[0:200]+"..."%}
+			{% else %}
+			{% set descr = comment.descr %}
+			{% endif %}
+			<div class="media">
+			  <img src="../static/img/userdefault.png" class="m-4" alt="..." height="50vh">
+			  <div class="media-body">
+			    <h5 class="mt-0"><strong> {{ comment.posted_by }} </strong>on {{ comment.posted_on }}</h5>
+			    {{ descr }}
+			  </div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

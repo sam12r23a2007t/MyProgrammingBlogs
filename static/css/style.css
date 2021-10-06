@@ -1,0 +1,19 @@
+.center-img{
+	text-align: center;
+}
+.container-main{
+    min-height: 89vh;
+}
+.footer{
+	text-align: center;
+	background-color: #212529;
+	color: white;
+}
+.center{
+	text-align: center;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	justify-items: center;
+}
+#more {display: none;}

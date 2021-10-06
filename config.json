@@ -1,0 +1,22 @@
+{
+	"params":{
+		"title": "MyProgrammingBlogs",
+		"home_heading": "Welcome to our Site",
+		"card1_heading": "Latest Posts",
+		"card1_paragraph": "View latest posts on this site as it is uploaded.",
+		"card1_link_text": "Latest Posts",
+		"card1_link": "/post",
+		"card2_heading": "About us",
+		"card2_paragraph": "Read about this site, read about us.",
+		"card2_link_text": "About us",
+		"card2_link": "/about",
+		"card3_heading": "Contact us",
+		"card3_paragraph": "Contact us for any issue in this site you face.",
+		"card3_link_text": "Contact us",
+		"card3_link": "/contact",
+		"no_of_post": 9,
+		"about_paragraph": "Welcome to MyProgrammingBlogs, here you can watch blogs posted on this site, comment on them. This blogsite is very simple blogging site.",
+		"admin_user_name": "helloIamadmin",
+		"admin_user_password": "ndasfljdfjsdjfisdfsfkdkfjsdlkdskflsjflkdjkfj"
+	}
+}

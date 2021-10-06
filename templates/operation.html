@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Operation{% endblock %}
+{% block post %}disable{% endblock %}
+{% block body%}
+<div class="container container-main">
+	<h1>Add/Edit Post</h1>
+	<form action="/operation/{{sno}}" method="POST">
+	<div class="mb-3">
+  <label for="title">Title</label>
+  <input type="text" class="form-control" id="title" name="title" value="{{posts.title}}">
+</div>
+<div class="mb-3">
+  <label for="descr">Description</label>
+  <textarea class="form-control" id="descr" name="descr" rows="3">{{posts.descr}}</textarea>
+</div>
+<div class="mb-3">
+  <label for="img">Image file</label>
+  <input type="text" class="form-control" id="img" name="img" value="{{posts.img}}">
+</div>
+<div class="mb-3">
+  <label for="slug">slug</label>
+  <input type="text" class="form-control" id="slug" name="slug" value="{{posts.slug}}">
+</div>
+<button type="submit" class="btn btn-primary">Add/Edit</button>
+</form>
+</div>
+{% endblock %}

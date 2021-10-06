@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Posts{% endblock %}
+{% block post %}active{% endblock %}
+{% block body%}
+	<div class="container container-main">
+		<div class="m-4">
+			<h1>Posts</h1>
+			<div class="row g-3 m-4">
+				{% for post in postdata %}
+				{% set path = "../static/img/"+post.img %}
+				{% if post.descr|length > 40 %}
+				{% set descr = post.descr[0:40]+"..." %}
+				{% else %}
+				{% set descr = post.descr %}
+				{% endif %}
+				{% if post.title|length > 17 %}
+				{% set title = post.title[0:17]+"..." %}
+				{% else %}
+				{% set title = post.title %}
+				{% endif %}
+				{% set url = "/viewpost/"+post.slug %}
+				<div class="card m-4" style="width: 18rem;">
+				  <img src={{path}} class="card-img-top" alt="...">
+				  <div class="card-body">
+				    <h5 class="card-title">{{title}}</h5>
+				    <p class="card-text">{{descr}}</p>
+				    <a href={{url}} class="btn btn-primary">Read More</a>
+				  </div>
+				</div>
+				{% endfor %}
+				<div>
+				<a class="btn btn-primary text-uppercase float-left" href="{{prev}}">&larr;Previous
+                    </a>
+            <a class="btn btn-primary text-uppercase float-right" href="{{nextnum}}">Next
+                    &rarr;</a></div>
+                    <hr class="my-4" />
+				
+			</div>
+		</div>
+	</div>
+{% endblock %}

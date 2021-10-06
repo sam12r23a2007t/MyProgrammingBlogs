@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block home %}active{% endblock %}
+{% block body%}
+	<div class="container">
+		<div class="center-img container-main">
+		<img src="{{ url_for('static', filename='/img/4.jpg') }}" class="img-fluid m-4" alt="..." width="600vh">
+		<h1>{{ params['home_heading'] }}</h1>
+	</div>
+	<div class="row m-4">
+		<div class="card m-4" style="width: 18rem;">
+		  <img src="{{ url_for('static', filename='/img/3.jpg') }}" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">{{params['card1_heading']}}</h5>
+		    <p class="card-text">{{params['card1_paragraph']}}</p>
+		    <a href="{{params['card1_link']}}" class="btn btn-primary">{{params['card1_link_text']}}</a>
+	  </div>
+	</div>
+		<div class="card m-4" style="width: 18rem;">
+		  <img src="{{ url_for('static', filename='/img/1.jpg') }}" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">{{params['card2_heading']}}</h5>
+		    <p class="card-text">{{params['card2_paragraph']}}</p>
+		    <a href="{{params['card2_link']}}" class="btn btn-primary">{{params['card2_link_text']}}</a>
+	  </div>
+	</div>
+	
+	<div class="card m-4" style="width: 18rem;">
+		  <img src="{{ url_for('static', filename='/img/2.jpg') }}" class="card-img-top" alt="...">
+		  <div class="card-body">
+		    <h5 class="card-title">{{params['card3_heading']}}</h5>
+		    <p class="card-text">{{params['card3_paragraph']}}</p>
+		    <a href="{{params['card3_link']}}" class="btn btn-primary">{{params['card3_link_text']}}</a>
+	  </div>
+	</div>
+</div>
+</div>
+	</div>
+{% endblock %}
